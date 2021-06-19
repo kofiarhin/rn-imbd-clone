@@ -6,8 +6,13 @@ const fontSize = {
     medium: 25,
     small: 18
 }
+
+const colors = {
+    primary: "#F2A154"
+}
 export {
     imagePrefix,
     defaultImage,
-    fontSize
+    fontSize,
+    colors
 }

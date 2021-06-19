@@ -13,7 +13,7 @@ import YouTube from "react-native-youtube"
 
 import Axios from "axios"
 import Icon from "react-native-vector-icons/Ionicons";
-import { imagePrefix} from "../constants/utils"
+import { imagePrefix, colors} from "../constants/utils"
 
 export const MovieDetail = ({ navigation, route})  => {
 
@@ -121,7 +121,7 @@ export const MovieDetail = ({ navigation, route})  => {
                   <TouchableOpacity style={{
                       width: "100%",
                       paddingVertical: 20,
-                      backgroundColor: "black",
+                      backgroundColor: colors.primary,
                       borderRadius: 15
                   }}>
                       <Text style={{

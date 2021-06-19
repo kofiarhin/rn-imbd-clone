@@ -58,16 +58,18 @@ const TabsScreen = () => {
             tabBarIcon: ({ size, color}) => <Icon name="home"  size={size} color={color}  /> 
         }} />
 
+
+{/* search */}
+        <Tabs.Screen  name="Search" component={Search} options={{
+            tabBarIcon: ({ size, color}) => <Icon name="search-outline"  size={size} color={color}  /> 
+        }} />
+
         {/* movies screen */}
         <Tabs.Screen  name="Movies" component={MoviesStackScreen} options={{
             tabBarIcon: ({ size, color}) => <Icon name="videocam-outline"  size={size} color={color}  /> 
         }} />
 
-        {/* search */}
-        <Tabs.Screen  name="Search" component={Search} options={{
-            tabBarIcon: ({ size, color}) => <Icon name="search-outline"  size={size} color={color}  /> 
-        }} />
-
+        
 
 
         {/* profile  */}
