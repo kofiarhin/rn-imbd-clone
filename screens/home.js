@@ -5,11 +5,13 @@ import {
             View,
             Text,
             StyleSheet,
-            TouchableOpacity
+            TouchableOpacity,
+            ScrollView
 } from "react-native"
 
 import Axios from "axios"
 import { Trending} from "../components/Trending/Trending"
+import { FeaturedPreview} from "../components/featuredPreview/featuredPreview"
 
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
@@ -39,31 +41,50 @@ export const Home = (props)  => {
    }
     return <SafeAreaView style={styles.container}>
         
-        {/* trending */}
+       <ScrollView>
+            {/* trending */}
               <View> 
 
                     { movies.length > 0  ? renderTrending() : null}
               </View>
 
-              {/*  */}
+              {/*  Browse trailer*/}
 
-              <View style={[styles.container, 
+              <View> 
+                      <TouchableOpacity onPress={() => props.navigation.push("Trailers")}
+                      
+                       style={[styles.container, 
                 {flexDirection: "row", 
-                alignItems: "center", 
-                justifyContent:"space-between",
-                paddingVertical: 20
-                }]}> 
+                paddingVertical: 20,
+                alignItems: "center",
+                justifyContent: "space-between"
+                }]}
+                      > 
                   <Text style={{
                       fontSize: fontSize.small,
                   }}>Browse Trailers and Vidoes</Text>
 
 
-                  <TouchableOpacity onPress={() => props.navigation.push("Trailers")}> 
                       <FontAwesome name="angle-right" size={fontSize.medium} />
                   </TouchableOpacity>
               </View>
+              {/* end browse trailer */}
+
+              {/* featured today */}
+
+              <View style={styles.container}> 
+                  <Text style={{
+                      fontSize: 25,
+                      marginBottom: 20,
+                      fontWeight: "bold"
+                  }}>Featured Today</Text>
+
+                  {/* list of movies  */}
+                  <FeaturedPreview  {...props} /> 
+              </View>
 
 
+       </ScrollView>
     </SafeAreaView>
 }
 

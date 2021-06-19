@@ -15,7 +15,7 @@ import LinearGradient from "react-native-linear-gradient"
 
 import Icon from "react-native-vector-icons/Ionicons"
 
-export const PreviewUnit = ({ item: { id, title,  poster_path, backdrop_path, ...rest}, navigation }) => {
+export const PreviewUnit = ({ item: { id, title,  poster_path, backdrop_path, overview, ...rest}, navigation }) => {
 
     console.log(navigation)
     const { width, height } = Dimensions.get("window");
@@ -56,7 +56,7 @@ export const PreviewUnit = ({ item: { id, title,  poster_path, backdrop_path, ..
                                 
 
                 <TouchableOpacity onPress={() => navigation.navigate("MovieDetail",{
-                    id, title, posterUrl, backdropUrl
+                    id, title, poster_path, overview
                 } )}>
                     <Icon  name="play-circle-outline" size={80} color="white" /> 
                 </TouchableOpacity>

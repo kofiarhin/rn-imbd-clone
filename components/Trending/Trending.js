@@ -26,7 +26,7 @@ export const Trending = ({ movies, ...rest}) => {
                     {
                         movies.map( movie => {
 
-                            return <PreviewUnit item={movie} {...rest} /> 
+                            return <PreviewUnit item={movie} {...rest} key={movie.id} /> 
                         })
                     }
         </Animated.ScrollView>

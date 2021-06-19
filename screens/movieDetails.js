@@ -4,19 +4,23 @@ import {
             SafeAreaView,
             View,
             Text,
-            Button
+            Button,
+            TouchableOpacity,
+            Image,
+            ScrollView
 } from "react-native";
 import YouTube from "react-native-youtube"
 
 import Axios from "axios"
+import Icon from "react-native-vector-icons/Ionicons";
+import { imagePrefix} from "../constants/utils"
 
 export const MovieDetail = ({ navigation, route})  => {
 
-    const {id, title, posterUrl, backdropUrl } = route.params;
+    const {id, title, poster_path, backdrop_path, overview="",  ...rest } = route.params;
 
-    // get videos
+    // states
     const [trailerId, setTrailerId ] = useState("")
-
 
     // get video
     useEffect(() => {
@@ -35,32 +39,100 @@ export const MovieDetail = ({ navigation, route})  => {
                 })
     }, [])
 
-    return <SafeAreaView>  
+    function renderHeader() {
 
-           
-
-               
-                {/* youtube trailer */}
-                <YouTube
-                videoId={trailerId} // The YouTube video ID
-                play // control playback of video with true/false
-                loop // control whether the video should loop when ended
-                //   onReady={e => this.setState({ isReady: true })}
-                //   onChangeState={e => this.setState({ status: e.state })}
-                //   onChangeQuality={e => this.setState({ quality: e.quality })}
-                //   onError={e => this.setState({ error: e.error })}
-                style={{ alignSelf: 'stretch', height: 300 }}
-                />
-
-                {/*  title  */}
-                <Text style={{
-                    fontSize: 20,
-                    textAlign: "center"
-                }}> {title} </Text>
-
-                {/* trailer id */}
+            return <View style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginBottom: 20
+            }}>
 
                 {/* go back */}
-                <Button title="Go Back" onPress={() => navigation.goBack()} />
+                <TouchableOpacity>
+                    <Icon name="chevron-back-outline" size={30} onPress={() => navigation.goBack()} />
+                </TouchableOpacity>
+
+
+                <Text style={{
+                    fontSize: 25,
+                    marginLeft: 20
+                }}> {title} </Text> 
+            </View>
+    }
+
+    return <SafeAreaView>  
+
+           <ScrollView>
+
+                {/* render header */}
+
+                {renderHeader()}
+               
+                {/* youtube trailer */}
+                <View style={{
+                    marginBottom: 20
+                }}>
+                    <YouTube
+                videoId={trailerId} // The YouTube video ID
+                play={false}
+                style={{ alignSelf: 'stretch', height: 300 }}
+                />
+                </View>
+
+              <View style={{
+                  paddingHorizontal: 10
+              }}> 
+
+                  {/* poster details */}
+                  <View style={{
+                      marginBottom: 20,
+                      flexDirection: "row"
+                  }}>
+                      <Image  source={{uri: `${imagePrefix}${poster_path}`}}  style={{
+                          width: 150,
+                          height: 200
+                      }} />
+
+                      <Text style={{
+                          fontSize: 20
+                      }}> {title} </Text> 
+                  </View>
+
+                    {/* overview */}
+
+                <View style={{
+                        paddingHorizontal: 10,
+                        marginBottom: 20
+                }}> 
+
+                            <Text style={{
+                                fontSize: 18,
+                                lineHeight:  20
+                            }}> {overview} </Text>
+
+                </View>
+              </View>
+
+              {/* save movie to profile */}
+
+              <View style={{
+                  paddingHorizontal: 10
+              }}>
+                  <TouchableOpacity style={{
+                      width: "100%",
+                      paddingVertical: 20,
+                      backgroundColor: "black",
+                      borderRadius: 15
+                  }}>
+                      <Text style={{
+                          color: "white",
+                          textAlign: "center",
+                          fontSize: 18
+                      }}>Save</Text>
+                  </TouchableOpacity>
+              </View>
+
+           </ScrollView>
+               
     </SafeAreaView>
 }
