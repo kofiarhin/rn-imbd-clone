@@ -74,7 +74,7 @@ export const MovieDetail = ({ navigation, route})  => {
                 }}>
                     <YouTube
                 videoId={trailerId} // The YouTube video ID
-                play={false}
+                play
                 style={{ alignSelf: 'stretch', height: 300 }}
                 />
                 </View>
@@ -86,15 +86,17 @@ export const MovieDetail = ({ navigation, route})  => {
                   {/* poster details */}
                   <View style={{
                       marginBottom: 20,
-                      flexDirection: "row"
+
                   }}>
                       <Image  source={{uri: `${imagePrefix}${poster_path}`}}  style={{
                           width: 150,
-                          height: 200
+                          height: 200,
+                          marginBottom: 10
                       }} />
 
                       <Text style={{
-                          fontSize: 20
+                          fontSize: 20,
+                          fontWeight: "bold"
                       }}> {title} </Text> 
                   </View>
 
@@ -107,7 +109,7 @@ export const MovieDetail = ({ navigation, route})  => {
 
                             <Text style={{
                                 fontSize: 18,
-                                lineHeight:  20
+                                lineHeight:  25
                             }}> {overview} </Text>
 
                 </View>
@@ -127,7 +129,8 @@ export const MovieDetail = ({ navigation, route})  => {
                       <Text style={{
                           color: "white",
                           textAlign: "center",
-                          fontSize: 18
+                          fontSize: 18,
+                          fontWeight: "bold"
                       }}>Save</Text>
                   </TouchableOpacity>
               </View>

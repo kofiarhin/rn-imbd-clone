@@ -8,7 +8,7 @@ const fontSize = {
 }
 
 const colors = {
-    primary: "#F2A154"
+    primary: "#F5C518"
 }
 export {
     imagePrefix,
