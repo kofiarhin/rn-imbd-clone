@@ -21,6 +21,7 @@ const MoviesStackScreen = () => {
   );
 };
 
+// home stack
 const HomeStack = createStackNavigator();
 const HomeStackScreen = () => {
   return (
@@ -32,6 +33,20 @@ const HomeStackScreen = () => {
       <HomeStack.Screen name="Trailers" component={Trailers} />
       <HomeStack.Screen name="MovieDetail" component={MovieDetail} />
     </HomeStack.Navigator>
+  );
+};
+
+// search stack
+const SearchStack = createStackNavigator();
+const SearchStackScreen = () => {
+  return (
+    <SearchStack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
+      <SearchStack.Screen name="Search" component={Search} />
+      <SearchStack.Screen name="MovieDetail" component={MovieDetail} />
+    </SearchStack.Navigator>
   );
 };
 
@@ -56,7 +71,7 @@ const TabsScreen = () => {
       {/* search */}
       <Tabs.Screen
         name="Search"
-        component={Search}
+        component={SearchStackScreen}
         options={{
           tabBarIcon: ({size, color}) => (
             <Icon name="search-outline" size={size} color={color} />

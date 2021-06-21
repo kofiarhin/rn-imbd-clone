@@ -38,7 +38,7 @@ export const Search = ({navigation}) => {
       {/* search */}
       <View
         style={{
-          paddingHorizontal: 20,
+          marginBottom: 20,
         }}>
         <TextInput
           placeholder="Search Movies"

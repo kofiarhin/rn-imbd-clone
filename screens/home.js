@@ -65,7 +65,23 @@ export const Home = props => {
         </View>
         {/* end browse trailer */}
 
-        {/* featured today */}
+        {/* Trending Movies */}
+
+        <View style={[styles.container, {marginBottom: 20}]}>
+          <Text
+            style={{
+              fontSize: 25,
+              marginBottom: 20,
+              fontWeight: 'bold',
+            }}>
+            Latest Movies
+          </Text>
+
+          {/* list of movies  */}
+          <FeaturedPreview {...props} />
+        </View>
+
+        {/* Popular Movies */}
 
         <View style={styles.container}>
           <Text
@@ -74,7 +90,7 @@ export const Home = props => {
               marginBottom: 20,
               fontWeight: 'bold',
             }}>
-            Featured Today
+            Popular Movies
           </Text>
 
           {/* list of movies  */}
