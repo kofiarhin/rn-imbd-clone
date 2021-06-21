@@ -35,14 +35,22 @@ export const Profile = () => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
-        {renderHeader()}
-
+        <View
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Icon name="person-circle-outline" size={200} />
+        </View>
         {/* slug */}
         <View
           style={{
             marginBottom: 20,
           }}>
-          <Text>
+          <Text
+            style={{
+              textAlign: 'center',
+            }}>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea ex cum
             in dignissimos perferendis odio quas reprehenderit officia possimus
             odit!

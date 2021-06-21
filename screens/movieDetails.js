@@ -72,10 +72,9 @@ export const MovieDetail = ({navigation, route}) => {
 
   return (
     <SafeAreaView>
+      {renderHeader()}
       <ScrollView>
         {/* render header */}
-
-        {renderHeader()}
 
         {/* youtube trailer */}
         <View

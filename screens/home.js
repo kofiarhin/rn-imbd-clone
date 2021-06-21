@@ -11,6 +11,7 @@ import {
 import Axios from 'axios';
 import {Trending} from '../components/Trending/Trending';
 import {FeaturedPreview} from '../components/featuredPreview/featuredPreview';
+import {PopularPreview} from '../components/PopularPreview/PopularPreview';
 
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
@@ -94,7 +95,7 @@ export const Home = props => {
           </Text>
 
           {/* list of movies  */}
-          <FeaturedPreview {...props} />
+          <PopularPreview {...props} />
         </View>
       </ScrollView>
     </SafeAreaView>
